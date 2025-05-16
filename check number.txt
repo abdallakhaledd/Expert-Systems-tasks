@@ -1,0 +1,20 @@
+         CLIPS (6.4.2 1/14/25)
+CLIPS> (deftemplate number
+  (slot value))
+
+CLIPS> (defrule pos_int
+  (number (value ?n&:(integerp ?n)&:(> ?n 0)))
+  =>
+  (printout t "The number " ?n " is a positive integer" crlf))
+CLIPS> (assert (number (value 5)))
+<Fact-1>
+CLIPS> (assert (number (value -3)))
+<Fact-2>
+CLIPS> (assert (number (value 2.5))))
+<Fact-3>
+CLIPS> (assert (number (value 2)))))
+<Fact-4>
+CLIPS> (run)
+The number 2 is a positive integer
+The number 5 is a positive integer
+CLIPS> 
