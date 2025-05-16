@@ -1,0 +1,20 @@
+         CLIPS (6.4.2 1/14/25)
+CLIPS> (deftemplate number
+  (slot value))
+
+CLIPS> (defrule Odd_number
+  (number (value ?n&:(integerp ?n)&:(not (= (mod ?n 2) 0))))
+  =>
+  (printout t "The number " ?n " is odd" crlf))
+CLIPS> (assert (number (value 7)))
+<Fact-1>
+CLIPS> (assert (number (value -3))) 
+<Fact-2>
+CLIPS> (assert (number (value 4)))
+<Fact-3>
+CLIPS> (assert (number (value 3.5)))
+<Fact-4>
+CLIPS> (run)
+The number -3 is odd
+The number 7 is odd
+CLIPS> 
