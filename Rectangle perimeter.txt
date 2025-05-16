@@ -1,0 +1,19 @@
+         CLIPS (6.4.2 1/14/25)
+CLIPS> (deftemplate rect
+  (slot height)
+  (slot width))
+
+CLIPS> (defrule perimeter
+  (rect (height ?h) (width ?w))
+  =>
+  (bind ?p (* 2 (+ ?h ?w)))
+  (printout t "Rectangle perimeter: " ?p crlf))
+CLIPS> (assert (rect (height 5) (width 10)))
+<Fact-1>
+CLIPS> (assert (rect (height 3) (width 7)))
+
+<Fact-2>
+CLIPS> (run)
+Rectangle perimeter: 20
+Rectangle perimeter: 30
+CLIPS> 
