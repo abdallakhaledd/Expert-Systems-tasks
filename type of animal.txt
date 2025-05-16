@@ -1,0 +1,13 @@
+CLIPS> (deftemplate animal
+  (slot type))
+CLIPS> (defrule check_animal
+  (animal (type ?t&~"dog"))
+  =>
+  (printout t "Animal type: " ?t crlf))
+CLIPS> (assert (animal (type "cat")))
+<Fact-1>
+CLIPS> (assert (animal (type "dog")))
+<Fact-2>
+CLIPS> (run)
+Animal type: cat
+CLIPS> 
